@@ -2,9 +2,9 @@ const express = require('express');
 const routes = express.Router();
 const controller = require('../controller/teamController');
 
-routes.post('/create', controller.createTeam);
-
-// routes.post('/register', controller.addUser);
+routes.post('/createTeam', controller.createTeam);
+routes.get('/getMyTeam/:id', controller.getMyTeam);
+routes.get('/getAvailableTeams', controller.getAvailableTeams);
 
 routes.get('/test', (req, res) => {
   res.send('teams routes working');

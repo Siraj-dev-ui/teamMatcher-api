@@ -29,32 +29,16 @@ exports.createTeam = async (req, res) => {
   }
 };
 
-// / Login User
+exports.getMyTeam = async (req, res) => {
+  console.log('team against this id : ', req.params.id);
 
-// exports.createTeam = async (req, res) => {
-//   console.log(req.body);
-//   const team = await User.findOne({ name: req.body.name });
-//   console.log(user);
-//   if (!user) {
-//     return res.status(404).json({ message: 'User does not exist' });
-//   }
-//   bcrypt.compare(req.body.password, user.password, function (err, result) {
-//     if (result) {
-//       const token = jwt.sign(
-//         {
-//           data: { _id: user._id },
-//         },
-//         process.env.SECRET_KEY,
-//         {
-//           expiresIn: Math.floor(Date.now() / 1000) + 60 * 60,
-//         }
-//       );
-//       return res.send({
-//         token,
-//         status: 'success',
-//       });
-//     } else {
-//       return res.status(403).json({ message: 'Incorrect Password...' });
-//     }
-//   });
-// };
+  const myTeam = await Team.findOne({ _id: id });
+
+  res.send({ myTeam: myTeam });
+};
+
+exports.getAvailableTeams = async (req, res) => {
+  const availableTeams = await Team.find({ isAvailable: true });
+
+  res.send({ availableTeams: availableTeams });
+};

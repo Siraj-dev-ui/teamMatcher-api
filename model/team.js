@@ -15,6 +15,10 @@ const teamSchema = mongoose.Schema(
       type: String,
       require: true,
     },
+    isAvailable: {
+      type: Boolean,
+      default: true,
+    },
   },
   { timestamps: true }
 );
