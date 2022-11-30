@@ -17,4 +17,4 @@ const requestSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports('Request', requestSchema);
+module.exports = mongoose.model('Request', requestSchema);
