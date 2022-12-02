@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const matchSchema = mongoose.Schema(
   {
     winnerTeamId: {
-      type: String,
+      type: Schema.Types.ObjectId, ref: 'team'
     },
     loserTeamId: {
-      type: String,
+      type: Schema.Types.ObjectId, ref: 'team'
     },
     requestId: {
-      type: String,
+      type: Schema.Types.ObjectId, ref: 'request'
     },
     ground: {
       type: String,

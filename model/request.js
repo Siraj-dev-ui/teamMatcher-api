@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const {Schema} = mongoose
 const requestSchema = mongoose.Schema(
   {
     sendTo_Id: {
-      type: String,
+      type: Schema.Types.ObjectId, ref: 'team'
     },
     sendBy_Id: {
-      type: String,
+      type: Schema.Types.ObjectId, ref: 'team'
     },
     status: {
       type: String,

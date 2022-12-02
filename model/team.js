@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const {Schema} = mongoose
 
 const teamSchema = mongoose.Schema(
   {
@@ -12,8 +13,7 @@ const teamSchema = mongoose.Schema(
       require: true,
     },
     user_Id: {
-      type: String,
-      require: true,
+      type: Schema.Types.ObjectId, ref: 'user'
     },
     isAvailable: {
       type: Boolean,
