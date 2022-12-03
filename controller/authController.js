@@ -22,9 +22,10 @@ exports.loginUser = async (req, res) => {
           expiresIn: Math.floor(Date.now() / 1000) + 60 * 60,
         }
       );
-      return res.send({
+      return res.json({
         token,
         status: 'success',
+        user: user,
       });
     } else {
       return res.status(403).json({ message: 'Incorrect Password...' });
@@ -49,8 +50,8 @@ exports.addUser = async (req, res) => {
     });
     const user = await User.create(newUser);
     res.json({
+      status: 'success',
       message: 'Signup Successful',
-      user: user,
     });
   } catch (err) {
     res.status(500).json({ message: err });
