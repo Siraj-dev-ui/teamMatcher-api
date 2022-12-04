@@ -4,6 +4,7 @@ const controller = require('../controller/requestsController');
 
 routes.get('/getPendingRequests/:id', controller.getPendingRequests);
 routes.get('/getReceivedRequests/:id', controller.getReceivedRequests);
+routes.post('/sendRequest', controller.sendRequest);
 // routes.get('/getAvailableTeams', controller.getAvailableTeams);
 
 routes.get('/test', (req, res) => {

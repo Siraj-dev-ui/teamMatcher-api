@@ -3,9 +3,27 @@ const Team = require('../model/team');
 
 // register user
 
-exports.setTeamAvailability = async (req, res) => {
-  const teamId = req.body._id;
-  const availableTeams = await Team.save({ isAvailable: true });
+exports.testController = async (req, res) => {
+  console.log(req.body);
+  res.json('res res');
+};
 
-  res.send({ availableTeams: availableTeams });
+exports.notWorkingController = async (req, res) => {
+  const { teamId, available } = req.body._id;
+  // const availableTeams = await Team.save({ isAvailable: true });
+  const team = await Team.findById(teamId);
+  if (team) {
+    team.available = available;
+    const update = await team.save();
+    res.json({
+      status: 'success',
+      message: 'availability updated...',
+      update: update,
+    });
+  } else {
+  }
+
+  // console.log('after updatation : ', availableTeams);
+
+  // res.json({ availableTeams: availableTeams });
 };

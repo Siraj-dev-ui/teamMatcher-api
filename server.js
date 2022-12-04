@@ -21,6 +21,8 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/auth', authRoute);
+
+// user
 app.use('/user', userRoute);
 app.use('/teams', teamsRoute);
 app.use('/requests', requestsRoute);
