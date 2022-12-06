@@ -7,7 +7,7 @@ const connectdb = require('./config/db');
 
 const authRoute = require('./routes/authRoute');
 const userRoute = require('./routes/userRoute');
-const postRoute = require('./routes/postRoute');
+// const postRoute = require('./routes/postRoute');
 const teamsRoute = require('./routes/teamRoute');
 const requestsRoute = require('./routes/requestsRoute');
 // const { application } = require('express');

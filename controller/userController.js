@@ -9,7 +9,7 @@ exports.testController = async (req, res) => {
 };
 
 exports.notWorkingController = async (req, res) => {
-  const { teamId, available } = req.body._id;
+  const { teamId, available } = req.body;
   // const availableTeams = await Team.save({ isAvailable: true });
   const team = await Team.findById(teamId);
   if (team) {
